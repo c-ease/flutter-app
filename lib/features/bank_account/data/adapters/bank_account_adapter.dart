@@ -9,18 +9,6 @@ class BankAccountAdapter extends TableAdapter<BankAccount> {
   String get primaryKey => 'id';
 
   @override
-  String get createTableQuery => '''
-    CREATE TABLE bank_account (
-      id TEXT PRIMARY KEY,
-      name TEXT NOT NULL,
-      type TEXT NOT NULL,
-      balance REAL NOT NULL,
-      init_balance REAL NOT NULL,
-      created_at INTEGER NOT NULL
-    )
-  ''';
-
-  @override
   Map<String, dynamic> toMap(BankAccount item) {
     return {
       'id': item.id,

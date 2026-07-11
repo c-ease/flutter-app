@@ -1,7 +1,6 @@
 import 'package:path/path.dart';
+import 'package:quote/core/db/migrations/migration_runner.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:quote/core/db/table_adapter.dart';
-import 'package:quote/features/bank_account/data/adapters/bank_account_adapter.dart';
 
 class AppDatabase {
   AppDatabase._();
@@ -9,13 +8,9 @@ class AppDatabase {
   static final AppDatabase instance = AppDatabase._();
 
   static const String _dbName = 'quote.db';
-  static const int _dbVersion = 1;
+  static const int _dbVersion = 2;
 
   Database? _database;
-
-  final List<TableAdapter<dynamic>> _adapters = [
-    BankAccountAdapter(),
-  ];
 
   Future<Database> get database async {
     if (_database != null) {
@@ -34,12 +29,30 @@ class AppDatabase {
       path,
       version: _dbVersion,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
   }
 
-  Future<void> _onCreate(Database db, int version) async {
-    for (final adapter in _adapters) {
-      await db.execute(adapter.createTableQuery);
-    }
+  Future<void> _onCreate(
+    Database db,
+    int version,
+  ) async {
+    await MigrationRunner.migrate(
+      db,
+      0,
+      version,
+    );
+  }
+
+  Future<void> _onUpgrade(
+    Database db,
+    int oldVersion,
+    int newVersion,
+  ) async {
+    await MigrationRunner.migrate(
+      db,
+      oldVersion,
+      newVersion,
+    );
   }
 }
