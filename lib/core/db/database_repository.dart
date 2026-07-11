@@ -1,17 +1,18 @@
-import 'package:sqflite/sqflite.dart';
 import 'package:quote/core/db/app_database.dart';
 import 'package:quote/core/db/table_adapter.dart';
+import 'package:sqflite/sqflite.dart';
 
-class GenericRepository<T> {
-  final AppDatabase appDatabase;
+class DatabaseRepository<T> {
+  final AppDatabase database;
+
   final TableAdapter<T> adapter;
 
-  GenericRepository({
-    required this.appDatabase,
+  DatabaseRepository({
+    required this.database,
     required this.adapter,
   });
 
-  Future<Database> get _db async => appDatabase.database;
+  Future<Database> get _db async => database.database;
 
   Future<int> insert(T item) async {
     final db = await _db;
@@ -56,10 +57,11 @@ class GenericRepository<T> {
   Future<int> update(T item) async {
     final db = await _db;
     final map = adapter.toMap(item);
+
     final id = map[adapter.primaryKey];
 
     if (id == null) {
-      throw Exception('Cannot update item without primary key value');
+      throw Exception('Cannot update item without primary key value.');
     }
 
     return db.update(
