@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:quote/core/logging/app_log_tag.dart';
+import 'package:quote/core/logging/app_logger.dart';
 import 'package:quote/features/bank_account/presentation/add_bank_account_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  AppLogger.info(
+    'Application started.',
+    tag: AppLogTag.ui,
+  );
+
   runApp(const QuoteApp());
 }
 

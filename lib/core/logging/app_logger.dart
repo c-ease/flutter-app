@@ -5,13 +5,9 @@ class AppLogger {
   AppLogger._();
 
   static final Logger _logger = Logger(
-    printer: PrettyPrinter(
-      methodCount: 0,
-      errorMethodCount: 5,
-      lineLength: 100,
+    printer: SimplePrinter(
       colors: true,
-      printEmojis: false,
-      dateTimeFormat: DateTimeFormat.onlyTimeAndSinceStart,
+      printTime: true,
     ),
   );
 
