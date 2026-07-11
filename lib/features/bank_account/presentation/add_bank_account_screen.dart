@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quote/features/bank_account/data/repositories/bank_account_service.dart';
+import 'package:quote/features/bank_account/data/repositories/bank_account_repository.dart';
 
 class AddBankAccountScreen extends StatefulWidget {
   const AddBankAccountScreen({super.key});
@@ -13,7 +13,7 @@ class _AddBankAccountScreenState extends State<AddBankAccountScreen> {
   final _nameController = TextEditingController();
   final _initialBalanceController = TextEditingController();
 
-  final BankAccountService _bankAccountService = BankAccountService();
+  final BankAccountRepository _bankAccountRepository = BankAccountRepository();
 
   bool _isSaving = false;
 
@@ -37,7 +37,7 @@ class _AddBankAccountScreenState extends State<AddBankAccountScreen> {
     });
 
     try {
-      await _bankAccountService.createBankAccount(
+      await _bankAccountRepository.createBankAccount(
         name: name,
         initialBalance: initialBalance,
       );
