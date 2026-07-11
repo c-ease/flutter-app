@@ -1,0 +1,35 @@
+{
+    "entry": {
+        "start_date": "2024-01-01",
+        "end_date": "2024-01-31",
+        "tag": "example_tag",
+        "month": "January",
+        "year": 2024,
+        "data": {
+            "plan": {
+                "budget": 1000,
+                "categories": [
+                    {
+                        "title": "Food",
+                        "amount": 300
+                    }
+                ],
+                "untagged": 700
+            },
+            "expenses": {
+                "total": 300,
+                "categories": [
+                    {
+                        "title": "Food",
+                        "amount": 250
+                    },
+                    {
+                        "title": "Transport",
+                        "amount": 50
+                    }
+                ],
+                "untagged": 700
+            }
+        }
+    }
+}
