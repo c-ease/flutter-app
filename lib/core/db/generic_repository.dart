@@ -23,10 +23,15 @@ class GenericRepository<T> {
     );
   }
 
-  Future<List<T>> getAll() async {
+  Future<List<T>> getAll({
+    String? orderBy,
+  }) async {
     final db = await _db;
 
-    final rows = await db.query(adapter.tableName);
+    final rows = await db.query(
+      adapter.tableName,
+      orderBy: orderBy,
+    );
 
     return rows.map(adapter.fromMap).toList();
   }

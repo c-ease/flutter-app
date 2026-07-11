@@ -4,6 +4,7 @@ class BankAccount {
   final String type;
   final double balance;
   final double initBalance;
+  final int createdAt;
 
   const BankAccount({
     required this.id,
@@ -11,6 +12,7 @@ class BankAccount {
     required this.type,
     required this.balance,
     required this.initBalance,
+    required this.createdAt,
   });
 
   BankAccount copyWith({
@@ -19,6 +21,7 @@ class BankAccount {
     String? type,
     double? balance,
     double? initBalance,
+    int? createdAt,
   }) {
     return BankAccount(
       id: id ?? this.id,
@@ -26,6 +29,7 @@ class BankAccount {
       type: type ?? this.type,
       balance: balance ?? this.balance,
       initBalance: initBalance ?? this.initBalance,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 }

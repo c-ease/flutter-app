@@ -4,8 +4,8 @@ import 'package:quote/core/db/generic_repository.dart';
 import 'package:quote/features/bank_account/data/adapters/bank_account_adapter.dart';
 import 'package:quote/features/bank_account/data/models/bank_account.dart';
 
-class BankAccountService {
-  BankAccountService({
+class BankAccountRepository {
+  BankAccountRepository({
     GenericRepository<BankAccount>? repository,
   }) : _repository = repository ??
             GenericRepository<BankAccount>(
@@ -29,13 +29,18 @@ class BankAccountService {
       type: _dummyAccountTypeId,
       balance: initialBalance,
       initBalance: initialBalance,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
     );
 
     await _repository.insert(account);
   }
 
-  Future<List<BankAccount>> getAllBankAccounts() {
-    return _repository.getAll();
+  Future<List<BankAccount>> getAllBankAccounts({
+    bool ascending = false,
+  }) {
+    return _repository.getAll(
+      orderBy: 'created_at ${ascending ? 'ASC' : 'DESC'}',
+    );
   }
 
   Future<BankAccount?> getBankAccountById(String id) {

@@ -15,7 +15,8 @@ class BankAccountAdapter extends TableAdapter<BankAccount> {
       name TEXT NOT NULL,
       type TEXT NOT NULL,
       balance REAL NOT NULL,
-      init_balance REAL NOT NULL
+      init_balance REAL NOT NULL,
+      created_at INTEGER NOT NULL
     )
   ''';
 
@@ -27,6 +28,7 @@ class BankAccountAdapter extends TableAdapter<BankAccount> {
       'type': item.type,
       'balance': item.balance,
       'init_balance': item.initBalance,
+      'created_at': item.createdAt,
     };
   }
 
@@ -38,6 +40,7 @@ class BankAccountAdapter extends TableAdapter<BankAccount> {
       type: map['type'] as String,
       balance: (map['balance'] as num).toDouble(),
       initBalance: (map['init_balance'] as num).toDouble(),
+      createdAt: map['created_at'] as int,
     );
   }
 }
