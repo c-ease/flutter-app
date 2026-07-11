@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:quote/core/logging/log_tag.dart';
+import 'package:quote/core/logging/app_log_tag.dart';
 
 class AppLogger {
   AppLogger._();
