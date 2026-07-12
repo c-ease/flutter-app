@@ -1,0 +1,4 @@
+enum AppCardVariant {
+  filled,
+  outlined,
+}
