@@ -3,7 +3,9 @@ import 'package:quote/core/theme/app_theme.dart';
 import 'package:quote/core/theme/app_theme_palette.dart';
 
 class ThemeController extends ChangeNotifier {
-  ThemeController();
+  ThemeController._();
+
+  static final ThemeController instance = ThemeController._();
 
   ThemeMode _themeMode = ThemeMode.light;
   AppThemePalette _palette = AppThemePalettes.light;
