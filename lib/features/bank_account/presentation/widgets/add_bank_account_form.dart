@@ -21,10 +21,10 @@ class AddBankAccountForm extends StatefulWidget {
 
   @override
   State<AddBankAccountForm> createState() =>
-      _AddBankAccountFormState();
+      AddBankAccountFormState();
 }
 
-class _AddBankAccountFormState
+class AddBankAccountFormState
     extends State<AddBankAccountForm> {
   final _formKey = GlobalKey<FormState>();
 
@@ -81,7 +81,7 @@ class _AddBankAccountFormState
     );
   }
 
-  void _clear() {
+  void clear() {
     _formKey.currentState?.reset();
 
     _nameController.clear();
@@ -128,7 +128,7 @@ class _AddBankAccountFormState
                     label: 'Cancel',
                     expanded: false,
                     variant: AppButtonVariant.outlined,
-                    onPressed: _clear,
+                    onPressed: clear,
                   ),
                 ),
                 const AppGap.md(),
