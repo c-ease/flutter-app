@@ -13,7 +13,7 @@ class AppColors {
   static const Color lightTextPrimary = Color(0xFF212121);
   static const Color lightTextSecondary = Color(0xFF616161);
 
-  static const Color lightBorder = Color(0xFFE0E0E0);
+  static const Color lightBorder = Color(0xFFBDBDBD);
 
   static const Color lightSuccess = Color(0xFF2E7D32);
   static const Color lightWarning = Color(0xFFED6C02);
