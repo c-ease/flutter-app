@@ -122,26 +122,26 @@ class AddBankAccountFormState
             ),
             const AppGap.lg(),
             Row(
-              children: [
-                Expanded(
-                  child: AppButton(
-                    label: 'Cancel',
-                    expanded: false,
-                    variant: AppButtonVariant.outlined,
-                    onPressed: clear,
-                  ),
-                ),
-                const AppGap.md(),
-                Expanded(
-                  child: AppButton(
-                    label: 'Save',
-                    expanded: false,
-                    loading: widget.isSaving,
-                    onPressed:
-                        widget.isSaving ? null : _submit,
-                  ),
-                ),
-              ],
+children: [
+    Expanded(
+      child: AppButton(
+        label: 'Cancel',
+        variant: AppButtonVariant.outlined,
+        onPressed: clear,
+      ),
+    ),
+
+    const AppGap.horizontalMd(),
+
+    Expanded(
+      child: AppButton(
+        label: 'Save',
+        loading: widget.isSaving,
+        onPressed:
+            widget.isSaving ? null : _submit,
+      ),
+    ),
+  ],
             ),
           ],
         ),

@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quote/core/tokens/app_spacing.dart';
 
 class AppGap extends StatelessWidget {
-  const AppGap({
-    super.key,
-    this.width = 0,
-    this.height = 0,
-  });
+  const AppGap.zero({super.key})
+      : width = 0,
+        height = 0;
 
   final double width;
   final double height;

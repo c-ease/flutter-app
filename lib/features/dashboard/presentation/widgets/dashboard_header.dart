@@ -15,7 +15,12 @@ class DashboardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppSection(
       child: Row(
-        children: [
+        children: [          
+          Text(
+            'Quote',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const Spacer(),
           IconButton.filledTonal(
             onPressed: onToggleTheme,
             icon: Icon(
@@ -26,11 +31,6 @@ class DashboardHeader extends StatelessWidget {
             tooltip: isDarkMode
                 ? 'Switch to light mode'
                 : 'Switch to dark mode',
-          ),
-          const Spacer(),
-          Text(
-            'Quote',
-            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ],
       ),
